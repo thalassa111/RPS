@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    font-family: Arial;
+/*     background-image: url('h.jpg'); */
+}
+
+.navbar ul{
+    list-style: none;
+    background: #c25b08;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navbar li{
+    display: inline-block;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    padding: 1em 3em;
+    text-transform: uppercase;
+    font-size: medium;
+
+}
+
+.navbar a:hover{
+    background: rgb(50, 153, 34);
+}
+
+h1{
+    text-align: center;
+}
+
+#canvasDiv{
+    text-align: center;
+    padding-top: 3em;
+}
+
+#canvas{
+    border: 5px solid rgb(99, 85, 155);
+    background-color: black;
+    width: 80%;
+    height: 90%;
+    padding: 1rem;
+}
+
+.button{
+    text-align: center; 
+
+    border-radius: 50%;
+    color:rgb(192, 44, 44);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-color: rgb(159, 224, 46);
+    border-color: black;
+    border-width: 3px;
+    border: none;
+    padding: 20px 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.button:hover{
+    animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(0.85);
+    
+    }
+      100% {
+      transform: scale(1);
+    
+    }
+  }
+
+.choice1{
+    grid-area: left1;
+    align-self: center;
+}
+.choice2{
+    grid-area: left2;
+    align-self: center;
+}
+.choice3{
+    grid-area: left3;
+    align-self: center;
+}
+.canvas1{
+    grid-area: main;
+    text-align: center;
+}
+.pointer{grid-area: right;}
+
+#grid-container{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    background-color: aquamarine;
+    grid-template-areas: 
+    'left1 main .'
+    'left2 main right'
+    'left3 main .';
+    gap: 1rem;
+    padding: 1rem;
+    height: 500px;
+    width: 20%;
+    
+}
+
+#grid-container > div{
+    background-color: coral;
+}
