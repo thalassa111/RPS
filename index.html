@@ -2,39 +2,90 @@
 <html>
 <head>
   <link rel="stylesheet" href="./css/style.css">
-  <script type="text/javascript" src="./js/main.js"> </script>
+  <script type="module" src="./js/main.js"> </script>
 </head>
 <body>
-  <h1>R P S Project</h1>
+  <h1>Rock Paper Scissor</h1>
   <nav class="navbar">
     <ul>
-<!--       <li><button type="button" onclick="testFunction()">testButton</button></li>|
-      <li><button type="button" onclick="testFunction()">testButton</button></li>|
-      <li><button type="button" onclick="testFunction()">testButton</button></li>|
-      <li><button type="button" onclick="testFunction()">testButton</button></li>| -->
-      <li><a href="#">New Game</a></li>|
-      <li><a href="#">Rules</a></li>|
-      <li><a href="#">Links</a></li>|
-      <li><a href="#">About</a></li>|
-      <!-- <button class="button" onclick="testFunction()">testButton</button> -->
+      <li><button type="button" class="navbarButton" onclick="showBox('firstDiv')">Rules</button></li>
+      <li><button type="button" class="navbarButton" onclick="newGame()">New Game</button></li>
+      <li><button type="button" class="navbarButton" onclick="showBox('thirdDiv')">Links / About</button></li>
+<!--       <li><a role="button"  onclick="newGame()">New Game</a></li>|
+      <li><a role="button" onclick="showRules()">Rules</a></li>|
+      <li><a role="button" href="#">Links / About</a></li> -->
     </ul>
   </nav>
 
-<!--   <div id="canvasDiv">
-    <button class="button" onclick="alert('Rock')">Rock</button>
-    <button class="button" onclick="alert('Paper')">Paper</button>
-    <button class="button" onclick="alert('Scissor')">Scissor</button>
-    <canvas id="canvas"></canvas>
-  </div> -->
-  
-  <div id="grid-container">
-    <div class="choice1"><button class="button" onclick="testFunction()">Rock</button></div>
-    <div class="choice2"><button class="button" onclick="testFunction()">Paper</button></div>
-    <div class="choice3"><button class="button" onclick="testFunction()">Scissor</button></div>
-    <div class="canvas1"><canvas id="canvas"></canvas></div>
-    <div class="pointer">right</div>
-  </div>
+  <div class="flex-container">
+    <div id="firstDiv" hidden>
+      <p id="quoteID">
+        <h3>According to Wikipedia's website, </h3>
+        <q cite="https://en.wikipedia.org/wiki/Rock_paper_scissors">
+          <i>The players may count aloud to three, or speak the name of the game (e.g. "Rock! Paper! Scissors!"), either raising one hand in a fist and swinging it down with each syllable or holding it behind their back. They then "throw" or "shoot" by extending it towards their opponent. Variations include a version where players throw immediately on the third count (thus throwing on the count of "Scissors!"), or a version where they shake their hands three times before "throwing".</i>
+        </q>
+      </p>
+      <h3>My own version</h3>
+      <p>Click "New Game" to start spinning the reels, make your pick on the left side, rock, paper or scissor. After your pick, the reels will stopp spinning, the arrow in the right side marks the AI pick. Yes, you play three at the same time, and the outcome of each reel will be shown on the top right side. To play again, press "New Game". History on the bottom right will show the outcome from last time. Have fun!</p>
+      </div>
+    <div id="secondDiv">
+      <div id="grid-container">
+        <div class="choice1">
+          <button class="button" onclick="logic(0)">
+            <img src="./pics/rockTrans.svg" alt="rock image" class="centerButtonImg" style="transform: scale(-1, 1)">
+          </button>
+        </div>
+        <div class="choice2">
+          <button class="button" onclick="logic(1)">
+            <img src="./pics/paperTrans.svg" alt="paper image" class="centerButtonImg">
+          </button>
+        </div>
+        <div class="choice3">
+          <button class="button" onclick="logic(2)">
+            <img src="./pics/scissorTrans.svg" alt="scissor image" class="centerButtonImg">
+          </button>
+        </div>
+        <div class="canvas1">
+          <canvas id="canvas" width="200" height="500"></canvas>
+        </div>
 
+        <div id="currentGame">Current Game
+          <span id="line1" class="lineStyle"></span>
+          <span id="line2" class="lineStyle"></span>
+          <span id="line3" class="lineStyle"></span>
+        </div>
+
+        <div id="pointer">
+          <svg class="svgArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.871l-5-4.871v3h-19v4h19v3z"/></svg>
+        </div>
+          <div id="history">History
+          <span id="history1" class="lineStyle"></span>
+          <span id="history2" class="lineStyle"></span>
+          <span id="history3" class="lineStyle"></span>
+        </div>
+      </div>
+  </div>
+  <div id="thirdDiv" hidden>
+    <h3>Links</h3>
+    <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" alt="link to wikipedia page about RPS" target="_blank">Link to wikipedia page about RPS </a>
+    <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors" alt="another page about RPS">Another site for information</a>
+    <p>A video of how they play RPS in friends. :)</p>
+    <iframe width="320" height="180" src="https://www.youtube.com/embed/lMCE2cvR7tg" title="Rock, Paper, Scissors, FIRE!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h3>About</h3>
+    <p>Webpage made by Dennis using html, css and javascript. This RPS project is the last assignment of course "frontend" with Edda Hallin.</p>
+  </div>
+</div>
+
+<!-- <div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div> 
+  <div>4</div>
+</div> -->
+  <div id="tmp" justify-content="middle" hidden>result</div>
+  <img id="img0" src="./pics/rockTrans.png" alt="rock image" hidden>
+  <img id="img1" src="./pics/paperTrans.png" alt="paper image" hidden>
+  <img id="img2" src="./pics/scissorTrans.png" alt="scissor image" hidden>
 
 </body>
 </html>

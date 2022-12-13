@@ -3,7 +3,6 @@ body{
     padding: 0;
     background: rgb(255, 255, 255);
     font-family: Arial;
-/*     background-image: url('h.jpg'); */
 }
 
 .navbar ul{
@@ -25,7 +24,6 @@ body{
     padding: 1em 3em;
     text-transform: uppercase;
     font-size: medium;
-
 }
 
 .navbar a:hover{
@@ -34,54 +32,101 @@ body{
 
 h1{
     text-align: center;
+    text-transform: uppercase;
+}
+
+a::after{
+    content: "\a";
+    white-space: pre;
+}
+
+#quoteID{
+    white-space: pre-line;
+}
+
+#firstDiv{
+    padding: 1rem;
+    width: 500px;
+}
+
+#secondDiv{
+    padding: 1rem;
+    width: 500px;
+}
+
+#thirdDiv{
+    padding: 1rem;
+    width: 500px;
 }
 
 #canvasDiv{
     text-align: center;
-    padding-top: 3em;
+    padding-top: 0;
 }
 
 #canvas{
-    border: 5px solid rgb(99, 85, 155);
-    background-color: black;
-    width: 80%;
-    height: 90%;
-    padding: 1rem;
+    /* border: 5px solid rgb(99, 85, 155); */
+    background-color: rgb(0, 0, 0);
+    margin-top: 5px;
+    /* padding: 0px; */
+}
+
+.navbarButton{
+    text-transform: uppercase;
+    width: 120px;
+    height: 50px;
+    border-radius: 15%;
+    background-color: rgb(220, 220, 220);
+    border-style: solid;
+    border-color: white;
+    margin: 2rem;
+}
+
+.navbarButton:hover{
+    background-color: rgb(227, 88, 8);
 }
 
 .button{
-    text-align: center; 
-
-    border-radius: 50%;
-    color:rgb(192, 44, 44);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background-color: rgb(159, 224, 46);
-    border-color: black;
-    border-width: 3px;
-    border: none;
-    padding: 20px 20px;
+    /* text-align: center; */ 
+    border-radius: 70%;
+    /* color:rgb(192, 44, 44); */
+/*     text-transform: uppercase; */
+    /* letter-spacing: 0.1em; */
+    background-color: rgb(220, 220, 220);
+/*     border-color: black;
+    border-width: 30px;
+    border:#203a99;  */
+    /* padding: 20px 20px; */
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
     width: 100px;
     height: 100px;
+    animation: paused;
 }
 
-.button:hover{
-    animation: pulse 0.8s infinite;
+.centerButtonImg{
+    width: 5rem;
+    height: 5rem;
 }
 
 @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    70% {
-      transform: scale(0.85);
-    
-    }
-      100% {
-      transform: scale(1);
-    
-    }
+    0% {transform: scale(1);}
+    70% {transform: scale(0.85);}
+    100% {transform: scale(1);}
   }
+
+@keyframes blinkingButton{
+    0%{
+        background-color: rgb(220, 220, 220);
+    }
+    50%{
+        background-color: rgb(227, 88, 8);
+    }
+    100%{
+        background-color: rgb(220, 220, 220);
+    }
+}
 
 .choice1{
     grid-area: left1;
@@ -95,11 +140,66 @@ h1{
     grid-area: left3;
     align-self: center;
 }
+
+#pointer{
+    grid-area: right;
+    padding-left: 0cm;
+    align-self: center;
+}
+
+#history{
+    grid-area: rightBot;
+    text-align: center;
+    padding-top: 1rem;
+    white-space: pre-line;
+}
+
+#currentGame{
+    grid-area: rightTop;
+    text-align: center;
+    padding-top: 1rem;
+    white-space: pre-line;
+}
+
 .canvas1{
     grid-area: main;
     text-align: center;
+    border: 2px solid white;
+    min-width: 200px;
 }
-.pointer{grid-area: right;}
+
+.lineStyle{
+    white-space: pre;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: brown;
+    width: 100%;
+    justify-content: center;
+}
+
+/* @media (max-width: 580px){ */
+@media (max-width: 1200px){
+    .flex-container{
+        flex-direction: column;
+    }
+    div#secondDiv{
+        order: -1;
+    }
+}
+
+.flex-container>div{
+    background-color: darkkhaki;
+    /* width: 200px; */
+     /* width: 33%; */ 
+    /* flex-wrap: wrap; */
+    width: 400px;
+    height: 550px;
+    margin: 10px;
+}
 
 #grid-container{
     display: grid;
@@ -107,17 +207,28 @@ h1{
     margin-right: auto;
     margin-top: 2%;
     background-color: aquamarine;
+    /* background-color: black; */
     grid-template-areas: 
-    'left1 main .'
+    'left1 main rightTop'
     'left2 main right'
-    'left3 main .';
-    gap: 1rem;
+    'left3 main rightBot';
+    gap: 0.2rem;
     padding: 1rem;
     height: 500px;
-    width: 20%;
-    
+    /* max-width: 600px; */
+    /* width: 400px; */
+    min-width: 33%;
 }
 
 #grid-container > div{
     background-color: coral;
+    /* background-color: black; */
+}
+
+.svgArrow{
+    width: 50px;
+    height: 100px;
+    vertical-align:bottom;
+    transform: rotate(180deg);
+    fill: white;
 }
