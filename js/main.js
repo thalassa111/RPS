@@ -55,14 +55,23 @@ window.showBox = function(inID){
 }
 
 function moveToHistory(){
-    clearCurrent("history1", "line1");
-    clearCurrent("history2", "line2");
-    clearCurrent("history3", "line3");
-    console.log("movetohistory");
+/*     swap("history4", "history1");
+    swap("history5", "history2");
+    swap("history6", "history3"); */
+    swap("history1", "line1");
+    clear("line1");
+    swap("history2", "line2");
+    clear("line2");
+    swap("history3", "line3");
+    clear("line3");
+/*     console.log("movetohistory"); */
 }
 
-function clearCurrent(inHistory, inline){
+function swap(inHistory, inline){
     document.getElementById(inHistory).innerHTML = document.getElementById(inline).innerHTML;
+}
+
+function clear(inline){
     document.getElementById(inline).innerHTML = "";
 }
 
