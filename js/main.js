@@ -1,6 +1,5 @@
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
-console.log("graphics.js");
 import { number } from "./number.js";
 
 let lastTime = Date.now();
@@ -9,7 +8,6 @@ let numberArray = [];
 let numberArray2 = [];
 let numberArray3 = [];
 let speedOfNumber = 500;
-let speedOfNumbers = [500, 500, 500];
 let choiceMade = false;
 let playerPick;
 let updateFrames = true;
@@ -55,16 +53,12 @@ window.showBox = function(inID){
 }
 
 function moveToHistory(){
-/*     swap("history4", "history1");
-    swap("history5", "history2");
-    swap("history6", "history3"); */
     swap("history1", "line1");
     clear("line1");
     swap("history2", "line2");
     clear("line2");
     swap("history3", "line3");
     clear("line3");
-/*     console.log("movetohistory"); */
 }
 
 function swap(inHistory, inline){
@@ -169,7 +163,7 @@ function AiPick(inArray){
 function pickWinner(inArray, id){
     let AInumber = AiPick(inArray);
     let result = document.getElementById(id);
-    console.log("player: " + playerPick + " Ainumber: " + AInumber);
+/*     console.log("player: " + playerPick + " Ainumber: " + AInumber); */
     if(playerPick === 0){    //player is rock
         if(playerPick === AInumber){result.innerHTML = id + " - draw ";}
         else if(AInumber === 1){result.innerHTML = id + " - loss ";}
@@ -203,6 +197,7 @@ function stopButtonAnimation(){
     let element = document.getElementsByClassName("button");
     for(let i=0; i<element.length; i++){
         element[i].style.animation = "paused";
+        element[i].style.cursor = "not-allowed";
     }
 }
 
@@ -210,6 +205,7 @@ function startButtonAnimation(){
     let element = document.getElementsByClassName("button");
     for(let i=0; i<element.length; i++){
         element[i].style.animation = "pulse 0.8s infinite";
+        element[i].style.cursor = "pointer";
     }
 }
 
@@ -218,4 +214,4 @@ function startBlinkingButton(inArg){
     element[inArg].style.animation = "blinkingButton 1.2s infinite";
 }
 
-console.log("running main.js");
+/* console.log("running main.js"); */
